@@ -2,3 +2,4 @@ echo/target
 echo/Cargo.lock
 rust/target
 Cargo.lock
+target
