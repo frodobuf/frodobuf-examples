@@ -2,8 +2,10 @@ use async_trait::async_trait;
 use calc::calc::{Binary, Calculator, CalculatorServer, Nary};
 use frodobuf::provider::prelude::*;
 use std::sync::{Arc, RwLock};
-use system::system::{HealthCheckRequest, HealthCheckResponse, Provider, ProviderServer};
 use wasmcloud_provider_core as provider;
+use wasmcloud_system_interface::system::{
+    HealthCheckRequest, HealthCheckResponse, Provider, ProviderServer,
+};
 
 //const CAPABILITY_ID: &str = "wasmcloud:calculator";
 

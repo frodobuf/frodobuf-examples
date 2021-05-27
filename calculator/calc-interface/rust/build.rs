@@ -2,7 +2,7 @@ use anyhow::anyhow;
 use frodobuf::render::{OutputLanguage, RenderConfig, Renderer};
 use midl_parser::parse_string;
 
-const INPUT_FILE: &str = "../calc.midl";
+const INPUT_FILE: &str = "./calc.midl";
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let out_dir = std::path::PathBuf::from(&std::env::var("OUT_DIR").unwrap());

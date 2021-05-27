@@ -17,7 +17,7 @@ links:
     contract_id: "wasmcloud:httpserver"
     link_name: default
     values:
-       PORT: 8100
+       PORT: 8080
 
   - actor: ${CALC_ACTOR:MD7PGNZFOLCQDEHAFEOA5N33IVXBPIU5BFBTLZNA3MNQDGSLIA436P2K}
     provider_id: "VBYGFGNWGRMUEYKO3N3VHCSICMZMIT5P65JNCJL35XY7Y3IBO66WP623"

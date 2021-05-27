@@ -1,7 +1,9 @@
 use frodobuf::actor::prelude::*;
 use http_server::http_server::{HttpRequest, HttpResponse, HttpServer, HttpServerServer};
 use serde_json::json;
-use system::system::{Actor, ActorServer, HealthCheckRequest, HealthCheckResponse};
+use wasmcloud_system_interface::system::{
+    Actor, ActorServer, HealthCheckRequest, HealthCheckResponse,
+};
 
 #[derive(Default, Debug, FrodobufActor)]
 #[services(Actor, HttpServer)]

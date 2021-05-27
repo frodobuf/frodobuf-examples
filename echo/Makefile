@@ -37,3 +37,6 @@ release:
 actor_id: release
 	wash claims inspect $(RELEASE)/echo_s.wasm -o json | jq .module | tr -d "\"" 
 
+run:
+	export ECHO_ACTOR=$(shell make actor_id 2>&1 | tail -1)
+	RUST_LOG=trace wasmcloud -m manifest.yaml

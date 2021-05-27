@@ -1,6 +1,8 @@
 use frodobuf::actor::prelude::*;
 use ping::ping::{Ping, Pong, Ponger, PongerServer};
-use system::system::{Actor, ActorServer, HealthCheckRequest, HealthCheckResponse};
+use wasmcloud_system_interface::system::{
+    Actor, ActorServer, HealthCheckRequest, HealthCheckResponse,
+};
 
 #[derive(Default, Debug, FrodobufActor)]
 #[services(Ponger, Actor)]

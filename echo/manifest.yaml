@@ -1,7 +1,7 @@
 labels:
     sample: "wasmcloud echo"
 actors:
-    - echo/target/wasm32-unknown-unknown/release/echo_s.wasm
+    - target/wasm32-unknown-unknown/release/echo_s.wasm
 capabilities:
     - image_ref: wasmcloud.azurecr.io/httpserver:0.12.1
       link_name: default

@@ -1,0 +1,24 @@
+[package]
+name = "ping"
+edition = "2018"
+version = "0.1.0"
+build = "rust/build.rs"
+
+[lib]
+path = "rust/src/lib.rs"
+
+[dependencies]
+async-trait = "0.1"
+frodobuf = "0.1"
+serde_bytes = "0.11"
+serde = { version="1.0", features = ["derive"]}
+
+# dependencies for build.rs
+[build-dependencies]
+anyhow = "1.0"
+frodobuf = "0.1"
+midl-parser = "0.1"
+serde_json = "1.0"
+
+[features]
+default = []
