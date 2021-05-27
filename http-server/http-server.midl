@@ -1,0 +1,24 @@
+// interface for a simple http server
+
+package http_server;
+
+message HttpRequest {
+  string method;
+  string path;
+  string queryString;
+  map<string,string> header;
+  bytes body;
+}
+
+message HttpResponse {
+  u32 statusCode;
+  string status;
+  map<string,string> header;
+  bytes body;
+}
+
+service HttpServer {
+
+  rpc handleRequest(HttpRequest) returns HttpResponse;
+
+}

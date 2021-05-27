@@ -1,0 +1,14 @@
+package ping;
+
+message Ping {
+  string value;
+}
+
+@doc("Response to pong")
+message Pong {
+  string value;
+}
+
+service Ponger {
+  rpc ping(Ping) returns Pong;
+}

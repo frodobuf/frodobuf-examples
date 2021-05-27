@@ -1,0 +1,27 @@
+labels:
+  sample: "wasmcloud calculator"
+
+actors:
+  - ./actor/target/wasm32-unknown-unknown/release/calc_actor_s.wasm
+
+capabilities:
+  - image_ref: localhost:5000/calcprovider:5
+    link_name: default
+
+  - image_ref: wasmcloud.azurecr.io/httpserver:0.12.1
+    link_name: default
+    
+links:
+  - actor: ${CALC_ACTOR:MD7PGNZFOLCQDEHAFEOA5N33IVXBPIU5BFBTLZNA3MNQDGSLIA436P2K}
+    provider_id: "VAG3QITQQ2ODAOWB5TTQSDJ53XK3SHBEIFNK4AYJ5RKAX2UNSCAPHA5M"
+    contract_id: "wasmcloud:httpserver"
+    link_name: default
+    values:
+       PORT: 8100
+
+  - actor: ${CALC_ACTOR:MD7PGNZFOLCQDEHAFEOA5N33IVXBPIU5BFBTLZNA3MNQDGSLIA436P2K}
+    provider_id: "VBYGFGNWGRMUEYKO3N3VHCSICMZMIT5P65JNCJL35XY7Y3IBO66WP623"
+    contract_id: "wasmcloud:calculator"
+    link_name: default
+
+

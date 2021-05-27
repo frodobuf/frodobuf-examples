@@ -1,0 +1,14 @@
+labels:
+    sample: "wasmcloud echo"
+actors:
+    - echo/target/wasm32-unknown-unknown/release/echo_s.wasm
+capabilities:
+    - image_ref: wasmcloud.azurecr.io/httpserver:0.12.1
+      link_name: default
+links:
+    - actor: ${ECHO_ACTOR:MBVK4ENB3UGUZRAYIZVPWHXXFXTB5H4EN4AGRT2YM2NRSH6SGDYANFTD}
+      provider_id: "VAG3QITQQ2ODAOWB5TTQSDJ53XK3SHBEIFNK4AYJ5RKAX2UNSCAPHA5M"
+      contract_id: "wasmcloud:httpserver"
+      link_name: default
+      values:
+        PORT: 8080

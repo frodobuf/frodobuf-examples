@@ -1,0 +1,4 @@
+echo/target
+echo/Cargo.lock
+rust/target
+rust/Cargo.lock

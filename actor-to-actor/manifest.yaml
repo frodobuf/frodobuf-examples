@@ -1,0 +1,15 @@
+labels:
+  sample: "wasmcloud actor_to_actor"
+actors:
+  - ./pinger/target/wasm32-unknown-unknown/release/pinger_s.wasm
+  - ./ponger/target/wasm32-unknown-unknown/release/ponger_s.wasm
+capabilities:
+  - image_ref: wasmcloud.azurecr.io/httpserver:0.12.1
+    link_name: default
+links:
+  - actor: ${PINGER_ACTOR:MDODSAFNRWRCKQU456WIVHXXKSJNFZLZ5QJ3L3DQUWT5KGMUSARQELZO}
+    contract_id: "wasmcloud:httpserver"
+    provider_id: "VAG3QITQQ2ODAOWB5TTQSDJ53XK3SHBEIFNK4AYJ5RKAX2UNSCAPHA5M"
+    link_name: default
+    values:
+      PORT: 8030
