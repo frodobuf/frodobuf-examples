@@ -1,3 +1,5 @@
+// Ponger interface for frodobuf actor-to-actor example
+
 package ping;
 
 message Ping {
