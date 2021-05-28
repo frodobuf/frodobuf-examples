@@ -2,7 +2,7 @@ use calc::calc::{
     Binary,
     Calculator,
     CalculatorClient,
-    Nary, // Calc, CalcServer
+    Nary,
 };
 use frodobuf::actor::prelude::*;
 use http_server::http_server::{HttpRequest, HttpResponse, HttpServer, HttpServerServer};
@@ -55,7 +55,7 @@ impl HttpServer for CalcActor {
             status_code: 200,
             status: "OK".to_string(),
             header: Default::default(),
-            body: serde_json::to_vec(&json!({ "result": result }))
+            body: serde_json::to_vec(&json!({ "result": result.value }))
                 .map_err(|e| RpcError::Ser(e.to_string()))?,
         })
     }

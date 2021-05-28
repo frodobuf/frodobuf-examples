@@ -1,27 +1,32 @@
+
+
 package calc;
 
 @doc("parameters for binary operation")
 message Binary {
-  float64 left;
-  float64 right;
+  double left;
+  double right;
 }
 
 @doc("parameters for n-ary operation")
 message Nary {
-  [float64] terms;
+  [double] terms;
+}
+
+message CalcResult {
+  double value;
 }
 
 @doc("Calculator service")
 service Calculator {
   @doc("add two or more numbers")
-  rpc add(Nary) returns float64;
+  rpc add(Nary) returns CalcResult;
   @doc("subtract two numbers")
-  rpc sub(Binary) returns float64;
+  rpc sub(Binary) returns CalcResult;
   @doc("multiply two or more numbers")
-  rpc mul(Nary) returns float64;
+  rpc mul(Nary) returns CalcResult;
   @doc("divide two numbers")
-  rpc div(Binary) returns float64;
+  rpc div(Binary) returns CalcResult;
   @doc("raise x to the y power")
-  rpc pow(Binary) returns float64;
+  rpc pow(Binary) returns CalcResult;
 }
-

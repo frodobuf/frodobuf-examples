@@ -1,5 +1,5 @@
 use async_trait::async_trait;
-use calc::calc::{Binary, Calculator, CalculatorServer, Nary};
+use calc::calc::{Binary, Calculator, CalculatorServer, Nary, CalcResult};
 use frodobuf::provider::prelude::*;
 use std::sync::{Arc, RwLock};
 use wasmcloud_provider_core as provider;
@@ -32,43 +32,44 @@ impl Calculator for CalcProvider {
         &self,
         _ctx: &context::Context<'_>,
         value: &Nary,
-    ) -> std::result::Result<f64, RpcError> {
+    ) -> std::result::Result<CalcResult, RpcError> {
         let mut sum: f64 = 0.0;
         for v in value.terms.iter() {
             sum += v;
         }
-        Ok(sum)
+        Ok(CalcResult{value:sum})
     }
 
     async fn sub(
         &self,
         _ctx: &context::Context<'_>,
         value: &Binary,
-    ) -> std::result::Result<f64, RpcError> {
-        Ok(value.left - value.right)
+    ) -> std::result::Result<CalcResult, RpcError> {
+        Ok(CalcResult{value: (value.left - value.right) })
     }
 
-    async fn mul(
+
+async fn mul(
         &self,
         _ctx: &context::Context<'_>,
         value: &Nary,
-    ) -> std::result::Result<f64, RpcError> {
+    ) -> std::result::Result<CalcResult, RpcError> {
         let mut product: f64 = 1.0;
         for v in value.terms.iter() {
             product *= v;
         }
-        Ok(product)
+        Ok(CalcResult{value:product})
     }
 
     async fn div(
         &self,
         _ctx: &context::Context<'_>,
         value: &Binary,
-    ) -> std::result::Result<f64, RpcError> {
+    ) -> std::result::Result<CalcResult, RpcError> {
         if value.right == 0.0 {
             Err(RpcError::InvalidParameter("division by zero".to_string()))
         } else {
-            Ok(value.left / value.right)
+            Ok(CalcResult{value:value.left / value.right})
         }
     }
 
@@ -76,8 +77,8 @@ impl Calculator for CalcProvider {
         &self,
         _ctx: &context::Context<'_>,
         value: &Binary,
-    ) -> std::result::Result<f64, RpcError> {
-        Ok(value.left.powf(value.right))
+    ) -> std::result::Result<CalcResult, RpcError> {
+        Ok(CalcResult{value: value.left.powf(value.right)})
     }
 }
 
