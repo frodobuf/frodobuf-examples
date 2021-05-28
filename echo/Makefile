@@ -39,4 +39,4 @@ actor_id: release
 
 run:
 	export ECHO_ACTOR=$(shell make actor_id 2>&1 | tail -1)
-	RUST_LOG=trace wasmcloud -m manifest.yaml
+	RUST_LOG=debug wasmcloud -m manifest.yaml
