@@ -12,4 +12,4 @@ links:
     provider_id: "VAG3QITQQ2ODAOWB5TTQSDJ53XK3SHBEIFNK4AYJ5RKAX2UNSCAPHA5M"
     link_name: default
     values:
-      PORT: 8030
+      PORT: 8080
