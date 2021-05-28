@@ -11,10 +11,15 @@ crate-type = ["cdylib"]
 async-trait = "0.1"
 serde = {version = "1.0", features = ["derive"]}
 serde_json ="1.0"
-frodobuf = "0.1"
 http-server = { path = "../http-server" }
-wasmcloud-system-interface = "0.1"
 futures = "0.3"
+
+[dependencies.wasmcloud-system-interface]
+version = "0.1"
+#path = "../../frodobuf/interfaces/system"
+[dependencies.frodobuf]
+version = "0.1"
+#path = "../../frodobuf/frodobuf"
 
 [profile.release]
 # Optimize for small code size
