@@ -1,0 +1,25 @@
+// interface for a simple http server
+syntax = "proto3";
+
+package http_server;
+
+message HttpRequest {
+  string method = 1;
+  string path = 2;
+  string queryString = 3;
+  map<string,string> header = 4;
+  bytes body = 5;
+}
+
+message HttpResponse {
+  uint32 statusCode = 1;
+  string status = 2;
+  map<string,string> header = 3;
+  bytes body = 4;
+}
+
+service HttpServer {
+
+  rpc HandleRequest(HttpRequest) returns (HttpResponse);
+
+}
