@@ -14,4 +14,4 @@ clean:
 run:
 	export PINGER_ACTOR=$(shell cd pinger && make actor_id 2>&1 | tail -1)
 	export PONGER_ACTOR=$(shell cd ponger && make actor_id 2>&1 | tail -1)
-	RUST_LOG=trace wasmcloud -m manifest.yaml
+	RUST_LOG=debug wasmcloud -m manifest.yaml
