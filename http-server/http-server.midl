@@ -1,5 +1,6 @@
 // interface for a simple http server
 
+
 package http_server;
 
 message HttpRequest {
@@ -11,7 +12,7 @@ message HttpRequest {
 }
 
 message HttpResponse {
-  u32 statusCode;
+  uint32 statusCode;
   string status;
   map<string,string> header;
   bytes body;
@@ -19,6 +20,6 @@ message HttpResponse {
 
 service HttpServer {
 
-  rpc handleRequest(HttpRequest) returns HttpResponse;
+  rpc HandleRequest(HttpRequest) returns HttpResponse;
 
 }
