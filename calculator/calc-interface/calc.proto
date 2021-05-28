@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package calc;
+
+// @doc("parameters for binary operation")
+message Binary {
+  double left = 1;
+  double right = 2;
+}
+
+// @doc("parameters for n-ary operation")
+message Nary {
+  repeated double terms = 1;
+}
+
+message CalcResult {
+  double value = 1;
+}
+
+// @doc("Calculator service")
+service Calculator {
+  //@doc("add two or more numbers")
+  rpc add(Nary) returns (CalcResult);
+  //@doc("subtract two numbers")
+  rpc sub(Binary) returns (CalcResult);
+  //@doc("multiply two or more numbers")
+  rpc mul(Nary) returns (CalcResult);
+  //@doc("divide two numbers")
+  rpc div(Binary) returns (CalcResult);
+  //@doc("raise x to the y power")
+  rpc pow(Binary) returns (CalcResult);
+}
